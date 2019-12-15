@@ -132,7 +132,7 @@ def linestowords(linesegments): #this function takes array of lines and adds
 
 ####################################################################################################
 
-def wordstochracters(lines):# this function takes array of lines and
+def wordstochracters(linesegments):# this function takes array of lines and
 # adds the following (for each line):
 #    for each word:
 #       array of char objects which contains :
