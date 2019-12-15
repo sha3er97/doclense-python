@@ -51,7 +51,7 @@ def choose_thersholding_type(img,mode=1):
         return optimalThersholding(img)
     elif(mode == 2):
         return threshold_otsu(img)
-    else
+    else:
         return global_thersholding(img)
 
 #########################################################################################################

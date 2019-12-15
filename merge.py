@@ -1,8 +1,5 @@
 #built in functions :
 
-%matplotlib inline
-%load_ext autoreload
-%autoreload 2
 from skimage.color import rgb2gray,rgb2hsv,hsv2rgb
 import skimage.io as io
 from skimage.exposure import histogram

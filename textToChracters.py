@@ -78,6 +78,9 @@ def texttolines(binary): #this function takes a binary image
     #io.imshow(binary)
     #imagefromarr=Image.fromarray(binary)
     #imagefromarr.save('binarized.png')        
+
+####################################################################################################
+
 def linestowords(linesegments): #this function takes array of lines and adds
 #the following (for each line ):
 # array of wordsegment objects which contains (for each word):
@@ -126,6 +129,9 @@ def linestowords(linesegments): #this function takes array of lines and adds
                 #show_images([binary_dilation(x)])
                 countwords+=1
             countlines+=1  
+
+####################################################################################################
+
 def wordstochracters(lines):# this function takes array of lines and
 # adds the following (for each line):
 #    for each word:
