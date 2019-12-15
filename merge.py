@@ -7,7 +7,7 @@ from matplotlib.pyplot import bar
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
-from skimage.filters import threshold_otsu
+#from skimage.filters import threshold_otsu
 import copy
 from scipy.signal import convolve2d
 import skimage.io as io
@@ -22,7 +22,6 @@ from skimage.filters import *
 from skimage.morphology import binary_erosion, binary_dilation, binary_closing,skeletonize, thin
 from PIL import Image  
 import PIL 
-import cv2 as cv
 import scipy.ndimage as ndimage
 from skimage.measure import find_contours
 from skimage.filters import threshold_minimum,median
