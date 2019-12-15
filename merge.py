@@ -1,5 +1,6 @@
 #built in functions :
 
+import matplotlib.pyplot as plt
 from skimage.color import rgb2gray,rgb2hsv,hsv2rgb
 import skimage.io as io
 from skimage.exposure import histogram
@@ -11,7 +12,6 @@ import numpy as np
 import copy
 from scipy.signal import convolve2d
 import skimage.io as io
-import matplotlib.pyplot as plt
 import numpy as np
 from skimage.color import rgb2gray
 from scipy import fftpack
