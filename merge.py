@@ -34,6 +34,7 @@ from skimage import img_as_bool
 import thersholding.py
 import testing_functions.py
 import textToChracters.py
+import text_extraction.py
 ############################################
 
 def read_image(name): #take image name return uint8 grayscale image ndarray
