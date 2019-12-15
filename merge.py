@@ -13,14 +13,31 @@ import numpy as np
 from skimage.filters import threshold_otsu
 import copy
 from scipy.signal import convolve2d
-
+import skimage.io as io
+import matplotlib.pyplot as plt
+import numpy as np
+from skimage.color import rgb2gray
+from scipy import fftpack
+from scipy.signal import convolve2d
+from skimage.util import random_noise
+from skimage.exposure import rescale_intensity
+from skimage.filters import *
+from skimage.morphology import binary_erosion, binary_dilation, binary_closing,skeletonize, thin
+from PIL import Image  
+import PIL 
+import cv2 as cv
+import scipy.ndimage as ndimage
+from skimage.measure import find_contours
+from skimage.filters import threshold_minimum,median
+from skimage.transform import resize
+from skimage import img_as_bool
 ##########################################
 
 #import our files
 
 import thersholding.py
 import testing_functions.py
-
+import textToChracters.py
 ############################################
 
 def read_image(name): #take image name return uint8 grayscale image ndarray
