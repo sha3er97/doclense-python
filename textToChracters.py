@@ -181,8 +181,8 @@ def wordstochracters(lines):
                         #print(m.startcol,m.endcol)
                         if(m.endcol-m.startcol>=3):
                             x=w.wordimg[0:heightw,m.startcol:m.endcol] #chop! chop!
-                            imagefromarr=Image.fromarray(x)
-                            imagefromarr.save('line '+str(countlines)+"- word  "+str(countwords)+" char before "+str(countchar)+'.png')#saving the image
+                            #imagefromarr=Image.fromarray(x)
+                            #imagefromarr.save('line '+str(countlines)+"- word  "+str(countwords)+" char before "+str(countchar)+'.png')#saving the image
                             #wordstest.append(binary_dilation(x))
                             #show_images([x])
                             #resizing the image into 128 x 128 
@@ -227,9 +227,9 @@ def wordstochracters(lines):
                             
                             height=x.shape[0]
                             width=x.shape[1]
-                            imagefromarr=Image.fromarray(x)
-                            imagefromarr.save('line '+str(countlines)+"- word  "+str(countwords)+" char "+str(countchar)+'.png')
-                            show_images([x])
+                            #imagefromarr=Image.fromarray(x)
+                            #imagefromarr.save('line '+str(countlines)+"- word  "+str(countwords)+" char "+str(countchar)+'.png')
+                            #show_images([x])
                             factorheight=int(108/height)
                             newwidth=int(width*factorheight)
                             if(newwidth%2 !=0):
@@ -240,10 +240,10 @@ def wordstochracters(lines):
 #                            window=np.logical_and(window==1 , resized)
                             window=img_as_bool(window)
                             #resized=img_as_bool(resize(x, (128, 128),anti_aliasing=True))
-                            show_images([window])
-                            imagefromarr=Image.fromarray(window)
-                            imagefromarr.convert('P')
-                            imagefromarr.save('line '+str(countlines)+"- word  "+str(countwords)+" char resized "+str(countchar)+'.png')
+                            #show_images([window])
+                            #imagefromarr=Image.fromarray(window)
+                            #imagefromarr.convert('P')
+                            #imagefromarr.save('line '+str(countlines)+"- word  "+str(countwords)+" char resized "+str(countchar)+'.png')
                             m.img=window
                             countchar+=1
                     countwords+=1
