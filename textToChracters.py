@@ -332,9 +332,9 @@ def wordstochracters(lines):
                             window=img_as_bool(window)
                             #resized=img_as_bool(resize(x, (128, 128),anti_aliasing=True))
                             #show_images([window])
-                            #imagefromarr=Image.fromarray(window)
-                            #imagefromarr.convert('P')
-                            #imagefromarr.save('line '+str(countlines)+"- word  "+str(countwords)+" char resized "+str(countchar)+'.png')
+                            imagefromarr=Image.fromarray(window)
+                            imagefromarr.convert('P')
+                            imagefromarr.save('./results/line '+str(countlines)+"- word  "+str(countwords)+" char resized "+str(countchar)+'.png')
                             lines[l].words[w].chracters[m].img=window
                             countchar+=1
                     countwords+=1

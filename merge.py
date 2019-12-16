@@ -149,7 +149,10 @@ def predicttxt(lines):
     return txt
 
 def main():
-    gray_img=read_image("testomar.jpg")
+    path = "/data_set/"
+    dirs = os.listdir( path )
+
+    gray_img=read_image(dirs[0])
 
     #detect text regions
     backgroundEliminatedImg = backgroundElimination(gray_img)
@@ -186,11 +189,6 @@ def main():
     
    # saveImages([binary_img,binary_img2,binary_img4])
 
-
-
-
-
-
     #img = read_image("testomar.jpg")
     ## to be deleted
     #img = rgb2gray(io.imread("testomar.jpg"))
@@ -214,10 +212,10 @@ def main():
     wordstochracters(lines)
     ###
     ###predict
-    txt = predicttxt(lines)
+    #txt = predicttxt(lines)
     ###
-    for i in txt:
-        print(i+'\n')
+    #for i in txt:
+    #print(i+'\n')
 
 main()
 
