@@ -55,3 +55,18 @@ def choose_thersholding_type(img,mode=1):
         return global_thersholding(img)
 
 #########################################################################################################
+
+def medianFilter (img,m,n):
+    M=img.shape[0]
+    N=img.shape[1]
+    img2=np.ones((M,N))
+    W=int(m/2)
+    L=int(n/2)
+    for i in range (W,M-W):
+        for j in range(L,N-L):
+            temp=img[i-W:i+W+1,j-L:j+L+1]
+            #print(temp)
+            med=np.median(temp.flatten())
+            #print(med)
+            img2[i,j]=int(med)
+    return img2
