@@ -14,9 +14,9 @@ def backgroundElimination(img):
             if(intensityVariance < T):
                 imgCopy[i:i + blockSize, j:j + blockSize] = 255
     return imgCopy
-def binarize(img):
-    block_size = 35
-    return img > threshold_otsu(img)
+
+###################################################################################################
+
 def graphicsSeparation(img):
     structural_element = np.array([[1,1,1]
                                   ,[1,1,1]
