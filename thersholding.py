@@ -65,8 +65,11 @@ def medianFilter (img,m,n):
     for i in range (W,M-W):
         for j in range(L,N-L):
             temp=img[i-W:i+W+1,j-L:j+L+1]
-            #print(temp)
             med=np.median(temp.flatten())
-            #print(med)
             img2[i,j]=int(med)
     return img2
+
+#########################################################################################
+
+def binarize(img,mode=1):
+    return img > choose_thersholding_type(img,mode)
