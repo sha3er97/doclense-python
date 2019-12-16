@@ -1,3 +1,21 @@
+import matplotlib.pyplot as plt
+from skimage.color import rgb2gray,rgb2hsv,hsv2rgb
+import skimage.io as io
+from skimage.exposure import histogram
+from matplotlib.pyplot import bar
+import matplotlib as mpl
+import numpy as np
+import copy
+from scipy.signal import convolve2d
+from skimage.util import random_noise
+from skimage.exposure import rescale_intensity
+from skimage.morphology import binary_erosion, binary_dilation, binary_closing,reconstruction,dilation, erosion, opening, closing
+import PIL 
+import scipy.ndimage as ndimage
+from skimage.measure import find_contours
+from skimage.filters import threshold_minimum,median,threshold_otsu
+from skimage.transform import resize
+from skimage import img_as_bool
 
 def show_images(images,titles=None):
     #This function is used to show image(s) with titles by sending an array of images and an array of associated titles.
@@ -24,3 +42,7 @@ def showHist(img):
     imgHist = histogram(img, nbins=256)
     
     bar(imgHist[1].astype(np.uint8), imgHist[0], width=0.8, align='center')
+
+def saveImages(imgs):
+    for i in range(len(imgs)):
+        io.imsave("./results/step "+str(i)+" .jpg",imgs[i],check_contrast=False)
