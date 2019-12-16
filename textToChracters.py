@@ -131,12 +131,124 @@ def linestowords(linesegments): #this function takes array of lines and adds
             countlines+=1  
 
 ####################################################################################################
-
-def wordstochracters(linesegments):# this function takes array of lines and
+# this function takes array of lines and
 # adds the following (for each line):
 #    for each word:
 #       array of char objects which contains :
 # image of the character + starting column + end column 
+def wordstochracters(lines):
+        countlines=0
+        countwords=0
+        countchar=0
+        #show_images([l.img])
+        for l in linesegments: #loop on every line
+            if(l.endrow-l.startrwo>=15):
+                for w in l.words:  #loop on every word in the line
+                    heightw=w.wordimg.shape[0]
+                    widthw=w.wordimg.shape[1]
+                    charhistogram=np.zeros(widthw) #vertical histogram for the word
+                    countchar=0
+                    for j in range(widthw):
+                        for i in range (heightw):
+                            if(w.wordimg[i][j]==0):
+                                charhistogram[j]+=1
+    
+                    k=0
+                    end=-1
+                    w.chracters=[]#set the variable 3shan kant btdrb
+                    print(charhistogram)
+                    charhistogramthresh=round(np.average(charhistogram))
+                    charhistogramthresh/=2
+                    charhistogramthresh=round(charhistogramthresh)
+                    while k in range(len(charhistogram)):##loop on the histogram
+                        if(charhistogram[k]>=0): #k is the first column to have a black pixel,so we save it
+                            print("1st k=",k)
+                            for end in range(k,len(charhistogram)-1): #loop starts with k till the end
+                                if((charhistogram[end]==0  ) and (charhistogram[end+1]==0  ) ): #if we found an empty area,the char is completed
+                                    w.chracters.append(char(k,end))#create an object with the coordinates
+                                    k=end
+                                    print("last k=",k)
+                                    break
+                            if(end+1==len(charhistogram)-1):
+                                w.chracters.append(char(k,end))#create an object with the coordinates
+                                k=end
+                                print("last k=",k)
+                                break
+                                
+                        k+=1
+                    for m in(w.chracters): #loop on these coordinates to cut the word into chars
+                        #print(m)
+                        #print(m.startcol,m.endcol)
+                        if(m.endcol-m.startcol>=3):
+                            x=w.wordimg[0:heightw,m.startcol:m.endcol] #chop! chop!
+                            #imagefromarr=Image.fromarray(x)
+                            #imagefromarr.save('line '+str(countlines)+"- word  "+str(countwords)+" char before "+str(countchar)+'.png')#saving the image
+                            #wordstest.append(binary_dilation(x))
+                            #show_images([x])
+                            #resizing the image into 128 x 128 
+                            height=x.shape[0]
+                            width=x.shape[1]
+                            ystart=-1
+                            yend=-1
+                            xstart=-1
+                            xend=-1
+                            for i in range (height):
+                                for j in range(width):
+                                    if(x[i][j]==0):
+                                       ystart=i
+                                       break
+                                    else:
+                                        continue
+                                if(ystart!=-1):
+                                    break
+                            for i in range (height):
+                                for j in range(width):
+                                     if(x[i][j]==0):
+                                       yend=i
+                            for j in range(width):
+                                for i in range (height):
+                                     if(x[i][j]==0):
+                                       xstart=j 
+                                       break
+                                     else:
+                                        continue
+                                if(xstart!=-1):
+                                    break
+                            for j in range(width):
+                               for i in range (height):
+                                     if(x[i][j]==0):
+                                       xend=j 
+                            if(ystart>3 and yend < height-2 and xstart > 2 and xend < width-2 ) :
+                                x=x[ystart-3:yend+2,xstart-2:xend+2]
+                            elif(ystart>3 and yend < height-2):
+                                x=x[ystart-3:yend+2,xstart:xend]
+                            elif(xstart > 2 and xend < width-2):
+                                x=x[ystart:yend,xstart-2:xend+2]
+                            
+                            height=x.shape[0]
+                            width=x.shape[1]
+                            #imagefromarr=Image.fromarray(x)
+                            #imagefromarr.save('line '+str(countlines)+"- word  "+str(countwords)+" char "+str(countchar)+'.png')
+                            #show_images([x])
+                            factorheight=int(108/height)
+                            newwidth=int(width*factorheight)
+                            if(newwidth%2 !=0):
+                                newwidth+=1
+                            resized=img_as_bool(resize(x, (118,newwidth),anti_aliasing=True))
+                            window=np.ones((128,128)) 
+                            window[5:123,(64-int(newwidth/2)):(64+int(newwidth/2))]=resized
+#                           window=np.logical_and(window==1 , resized)
+                            window=img_as_bool(window)
+                            #resized=img_as_bool(resize(x, (128, 128),anti_aliasing=True))
+                            #show_images([window])
+                            #imagefromarr=Image.fromarray(window)
+                            #imagefromarr.convert('P')
+                            #imagefromarr.save('line '+str(countlines)+"- word  "+str(countwords)+" char resized "+str(countchar)+'.png')
+                            m.img=window
+                            countchar+=1
+                    countwords+=1
+                countlines+=1
+                countwords=0 
         countlines=0
         countwords=0
         countchar=0
