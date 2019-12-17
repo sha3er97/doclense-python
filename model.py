@@ -6,10 +6,10 @@ import matplotlib.pyplot as plt
 import os
 import numpy 
 from PIL import Image
-from commonfunctions import *
+#from commonfunctions import *
 import copy
-from sklearn.cluster import KMeans
-from commonfunctions import *
+#from sklearn.cluster import KMeans
+#from commonfunctions import *
 import numpy as np
 import skimage.io as io
 import matplotlib.pyplot as plt
@@ -17,28 +17,28 @@ from skimage.color import rgb2gray
 from skimage.morphology import binary_erosion, binary_dilation, binary_closing,skeletonize, thin ,opening,closing
 from skimage.measure import find_contours
 from skimage.draw import rectangle
-from sklearn.svm import SVC
-from sklearn.preprocessing import normalize
-from tensorflow.keras.layers import Dense, Dropout
+#from sklearn.svm import SVC
+#from sklearn.preprocessing import normalize
+#from tensorflow.keras.layers import Dense, Dropout
 import numpy as np 
 import pandas as pd
 from skimage.feature import hog
 import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split
-from sklearn.naive_bayes import GaussianNB
-from sklearn.model_selection import cross_val_score
-from sklearn.metrics import accuracy_score, roc_curve
-from sklearn.preprocessing import normalize
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, Dropout,BatchNormalization
-from tensorflow.keras.wrappers.scikit_learn import KerasClassifier
-from commonfunctions import *
+#from sklearn.model_selection import train_test_split
+#from sklearn.naive_bayes import GaussianNB
+#from sklearn.model_selection import cross_val_score
+#from sklearn.metrics import accuracy_score, roc_curve
+#from sklearn.preprocessing import normalize
+#from tensorflow.keras.models import Sequential
+#from tensorflow.keras.layers import Dense, Dropout,BatchNormalization
+#from tensorflow.keras.wrappers.scikit_learn import KerasClassifier
+#from commonfunctions import *
 import pickle
 from skimage.feature import (corner_harris, corner_peaks, BRIEF)
 from skimage.exposure import rescale_intensity
 from skimage.transform import rescale, resize, downscale_local_mean
-import tensorflow as tf
-from tensorflow.keras.models import load_model
+#import tensorflow as tf
+#from tensorflow.keras.models import load_model
 
 
 

@@ -69,8 +69,8 @@ from skimage import img_as_ubyte
 from skimage import io
 # Show the matlpotlib figures inside the notebook
 from skimage.morphology import binary_erosion, binary_dilation, binary_closing,skeletonize, thin
-from commonfunctions import *
-from autocorrect import Speller
+#from commonfunctions import *
+#from autocorrect import Speller
 
 
 import matplotlib.pyplot as plt
@@ -103,8 +103,8 @@ from textToChracters import *
 from text_extraction import *
 from deskew import *
 from postprocess import *
-from model import *
-
+#from model import *
+import os
 ############################################
 
 def read_image(name): #take image name return uint8 grayscale image ndarray
@@ -149,10 +149,10 @@ def predicttxt(lines):
     return txt
 
 def main():
-    path = "/data_set/"
+    path = "./data_set/"
     dirs = os.listdir( path )
 
-    gray_img=read_image(dirs[0])
+    gray_img=read_image("data_set/"+dirs[1])
 
     #detect text regions
     backgroundEliminatedImg = backgroundElimination(gray_img)
@@ -164,10 +164,11 @@ def main():
     #print(textualContentImg,type(textualContentImg))
     #print(np.max(textualContentImg),np.min(textualContentImg),np.average(textualContentImg))
     #binarize and denoise
-    img = binarize(textualContentImg,mode=1)
+    img = binarize(textualContentImg,mode=2)
     #binary_img2 = binarize(textualContentImg,mode=2)
     #binary_img4 = binarize(textualContentImg,mode=4)
-    
+    show_images([img])
+    saveImages([img])
     '''
     thershold modes :
     1 : optimalThersholding

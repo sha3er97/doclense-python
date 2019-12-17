@@ -1,4 +1,3 @@
-
 import matplotlib.pyplot as plt
 from skimage.color import rgb2gray,rgb2hsv,hsv2rgb
 import skimage.io as io
@@ -68,8 +67,8 @@ from skimage import img_as_ubyte
 from skimage import io
 # Show the matlpotlib figures inside the notebook
 from skimage.morphology import binary_erosion, binary_dilation, binary_closing,skeletonize, thin
-from commonfunctions import *
-from autocorrect import spell
+#from commonfunctions import *
+#from autocorrect import spell
 class linesegment:
     def __init__(self, startrow,endrow,imgdialated=0):
         self.startrwo = startrow
